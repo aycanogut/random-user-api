@@ -1,0 +1,601 @@
+https://randomuser.me/
+
+
+
+Bir web uygulaması yapılacak. Bu web uygulamasında randomuser apisi üzerinden çekilen userlar listelenecek.
+
+Kullanıcı eğer ilk defa giriş yapıyorsa bir form ekranı ile karşılaşacak. 
+Bu form ekranında 
+	Cinsiyet Bilgisi( Select şeklinde olmalı)
+	Kaç kişiyi listelemek istediğinin sayısını girdiği bir textbox olacak.
+Form ekranında validasyon kontrolleri yapılacak ve kullanıcıya doldurmadığı alan için hata mesajı alanın altında verilecek.
+
+Kullanıcı tüm bilgileri eksiksiz girerse "https://randomuser.me/" bu api üzerinden kullanıcının girdiği bilgilere göre çekilecek.
+Apiden gelen random userlar ekranda listelenecek.
+
+Ekranda bir filtre mekanizması olacak. 
+Bu filtre mekanizmasında age ve citye göre filtreleme özelliği olacak. Bu filtre mekanizması kullanıcının ilk form ekranı üzerindeki bilgilerle çektiği datalar üzerinden yapılacak. Tekrardan api çağrısı yapılmayacak.
+
+Kullanıcı filtreyi her değiştirdiğinde ekrandaki veriler filtreye göre değişecek.
+
+Kullanıcının filtresi ve apiden çektiği userlar bir dahaki girişinde kullanıcıya görünebilmesi için bir store alanında saklanacak.
+
+
+Kullanıcı eğer ilk defa giriş yapmıyorsa 
+
+	Önceki girişinden kaydedilen bilgiler ile web sitesi açılacak.
+	Eğer kullanıcı yeni bir cinsiyet ve random user sayısı ile random user çekmek isterse. Ekranda bulunan yeni sorgu butonuyla ilk girişteki ekrana yönlendirelecek
+
+
+Örnek json 
+
+{
+   "results":[
+      {
+         "gender":"female",
+         "name":{
+            "title":"Miss",
+            "first":"Heather",
+            "last":"Pearson"
+         },
+         "location":{
+            "street":{
+               "number":4753,
+               "name":"The Green"
+            },
+            "city":"Youghal",
+            "state":"Wexford",
+            "country":"Ireland",
+            "postcode":90469,
+            "coordinates":{
+               "latitude":"24.0343",
+               "longitude":"-28.2775"
+            },
+            "timezone":{
+               "offset":"+3:00",
+               "description":"Baghdad, Riyadh, Moscow, St. Petersburg"
+            }
+         },
+         "email":"heather.pearson@example.com",
+         "login":{
+            "uuid":"b287effe-a87d-4eb0-b009-e363818b9628",
+            "username":"angrylion892",
+            "password":"123654",
+            "salt":"MGEY3UdR",
+            "md5":"798f656207fc46d48db04f845967c420",
+            "sha1":"83ccdc3caf276451a3c686f44cca157c6dea17c0",
+            "sha256":"af6459b7b9ae3f6910f6883f1ed69de13d9404f6ce2d021d4c027f053fbc12e8"
+         },
+         "dob":{
+            "date":"1956-05-30T05:02:06.091Z",
+            "age":65
+         },
+         "registered":{
+            "date":"2009-03-15T22:53:49.594Z",
+            "age":12
+         },
+         "phone":"041-157-6315",
+         "cell":"081-245-4942",
+         "id":{
+            "name":"PPS",
+            "value":"2205569T"
+         },
+         "picture":{
+            "large":"https://randomuser.me/api/portraits/women/20.jpg",
+            "medium":"https://randomuser.me/api/portraits/med/women/20.jpg",
+            "thumbnail":"https://randomuser.me/api/portraits/thumb/women/20.jpg"
+         },
+         "nat":"IE"
+      },
+      {
+         "gender":"female",
+         "name":{
+            "title":"Mrs",
+            "first":"Julie",
+            "last":"da Conceição"
+         },
+         "location":{
+            "street":{
+               "number":6609,
+               "name":"Rua São Sebastiao "
+            },
+            "city":"Nova Iguaçu",
+            "state":"Rio de Janeiro",
+            "country":"Brazil",
+            "postcode":29840,
+            "coordinates":{
+               "latitude":"-40.3575",
+               "longitude":"-0.9163"
+            },
+            "timezone":{
+               "offset":"+9:30",
+               "description":"Adelaide, Darwin"
+            }
+         },
+         "email":"julie.daconceicao@example.com",
+         "login":{
+            "uuid":"97e64431-89be-4183-9ead-9b33c8b0d1e4",
+            "username":"blackbutterfly651",
+            "password":"cong",
+            "salt":"oVHTaZe6",
+            "md5":"ac2be7004db47eecfc91ff00a40b38a0",
+            "sha1":"91476e0475737c3cb2d3eeaef20b6c26f3db058d",
+            "sha256":"277be7e8b65d8e71ce3d6513e7f68d0ac80b50a3d3e06ce2a94f8a88e99e74ac"
+         },
+         "dob":{
+            "date":"1968-03-13T00:03:52.623Z",
+            "age":53
+         },
+         "registered":{
+            "date":"2008-01-23T05:03:20.380Z",
+            "age":13
+         },
+         "phone":"(96) 9099-5703",
+         "cell":"(67) 3248-0448",
+         "id":{
+            "name":"",
+            "value":null
+         },
+         "picture":{
+            "large":"https://randomuser.me/api/portraits/women/31.jpg",
+            "medium":"https://randomuser.me/api/portraits/med/women/31.jpg",
+            "thumbnail":"https://randomuser.me/api/portraits/thumb/women/31.jpg"
+         },
+         "nat":"BR"
+      },
+      {
+         "gender":"female",
+         "name":{
+            "title":"Mrs",
+            "first":"Katrina",
+            "last":"Richards"
+         },
+         "location":{
+            "street":{
+               "number":4529,
+               "name":"White Oak Dr"
+            },
+            "city":"Pueblo",
+            "state":"Minnesota",
+            "country":"United States",
+            "postcode":50668,
+            "coordinates":{
+               "latitude":"-58.8117",
+               "longitude":"-140.9905"
+            },
+            "timezone":{
+               "offset":"0:00",
+               "description":"Western Europe Time, London, Lisbon, Casablanca"
+            }
+         },
+         "email":"katrina.richards@example.com",
+         "login":{
+            "uuid":"9655f9f0-ee9c-415b-b636-d166ef8ca67f",
+            "username":"brownbear484",
+            "password":"toocool",
+            "salt":"VUTZy7x8",
+            "md5":"05d54737ef5b9187ace1fd426f3077f0",
+            "sha1":"ab6e3f697896129fa5d7e76214888838fe22c5ae",
+            "sha256":"67fa7a1ca2037810cc0463524f8b9fb2d5fb055f00b4be7de134fae0a8a35e05"
+         },
+         "dob":{
+            "date":"1959-10-09T16:50:29.721Z",
+            "age":62
+         },
+         "registered":{
+            "date":"2011-02-08T00:12:03.361Z",
+            "age":10
+         },
+         "phone":"(052)-619-7043",
+         "cell":"(264)-270-9374",
+         "id":{
+            "name":"SSN",
+            "value":"077-59-9273"
+         },
+         "picture":{
+            "large":"https://randomuser.me/api/portraits/women/20.jpg",
+            "medium":"https://randomuser.me/api/portraits/med/women/20.jpg",
+            "thumbnail":"https://randomuser.me/api/portraits/thumb/women/20.jpg"
+         },
+         "nat":"US"
+      },
+      {
+         "gender":"female",
+         "name":{
+            "title":"Miss",
+            "first":"Alice",
+            "last":"Pelletier"
+         },
+         "location":{
+            "street":{
+               "number":2724,
+               "name":"Balmoral St"
+            },
+            "city":"Cumberland",
+            "state":"Saskatchewan",
+            "country":"Canada",
+            "postcode":"G3B 6I1",
+            "coordinates":{
+               "latitude":"37.6247",
+               "longitude":"-15.9204"
+            },
+            "timezone":{
+               "offset":"+5:00",
+               "description":"Ekaterinburg, Islamabad, Karachi, Tashkent"
+            }
+         },
+         "email":"alice.pelletier@example.com",
+         "login":{
+            "uuid":"7cbbd6f6-fe30-4648-b184-a2fc1753b73b",
+            "username":"lazyladybug364",
+            "password":"criminal",
+            "salt":"95QgD2xI",
+            "md5":"8efb73e6510692a09d8c050f9e9ca7b9",
+            "sha1":"57942ba06ca83ff5fa15633f8506581c24ecf615",
+            "sha256":"2d86ee4ef323cdbd3c7eb65372689b42f8f6d597975002d1c1fd7f1ced780fe6"
+         },
+         "dob":{
+            "date":"1992-01-20T09:38:54.275Z",
+            "age":29
+         },
+         "registered":{
+            "date":"2004-12-19T13:22:10.967Z",
+            "age":17
+         },
+         "phone":"375-738-9178",
+         "cell":"357-542-9305",
+         "id":{
+            "name":"",
+            "value":null
+         },
+         "picture":{
+            "large":"https://randomuser.me/api/portraits/women/12.jpg",
+            "medium":"https://randomuser.me/api/portraits/med/women/12.jpg",
+            "thumbnail":"https://randomuser.me/api/portraits/thumb/women/12.jpg"
+         },
+         "nat":"CA"
+      },
+      {
+         "gender":"female",
+         "name":{
+            "title":"Mrs",
+            "first":"Olivia",
+            "last":"Nikula"
+         },
+         "location":{
+            "street":{
+               "number":6820,
+               "name":"Verkatehtaankatu"
+            },
+            "city":"Merijärvi",
+            "state":"Southern Savonia",
+            "country":"Finland",
+            "postcode":81569,
+            "coordinates":{
+               "latitude":"-75.8281",
+               "longitude":"156.4943"
+            },
+            "timezone":{
+               "offset":"+1:00",
+               "description":"Brussels, Copenhagen, Madrid, Paris"
+            }
+         },
+         "email":"olivia.nikula@example.com",
+         "login":{
+            "uuid":"6c71bb8f-f4b5-420c-ab42-3eafea17d584",
+            "username":"bluetiger909",
+            "password":"michel",
+            "salt":"5yDCvI44",
+            "md5":"ae73cc8411337b7202e37ee6b56734cc",
+            "sha1":"38d8af0d7a13d2e12cfba9478d3f210e209db8b0",
+            "sha256":"19782e24fcd6a9885addedeb4f21afb3ef07497c03b7bc0d514a25f010bb4eaa"
+         },
+         "dob":{
+            "date":"1976-02-28T04:20:55.191Z",
+            "age":45
+         },
+         "registered":{
+            "date":"2009-08-23T22:53:35.737Z",
+            "age":12
+         },
+         "phone":"02-440-704",
+         "cell":"045-277-69-33",
+         "id":{
+            "name":"HETU",
+            "value":"NaNNA272undefined"
+         },
+         "picture":{
+            "large":"https://randomuser.me/api/portraits/women/34.jpg",
+            "medium":"https://randomuser.me/api/portraits/med/women/34.jpg",
+            "thumbnail":"https://randomuser.me/api/portraits/thumb/women/34.jpg"
+         },
+         "nat":"FI"
+      },
+      {
+         "gender":"female",
+         "name":{
+            "title":"Mrs",
+            "first":"Helmi",
+            "last":"Saarinen"
+         },
+         "location":{
+            "street":{
+               "number":853,
+               "name":"Siilitie"
+            },
+            "city":"Pyhäranta",
+            "state":"Northern Savonia",
+            "country":"Finland",
+            "postcode":12064,
+            "coordinates":{
+               "latitude":"3.5647",
+               "longitude":"-11.2708"
+            },
+            "timezone":{
+               "offset":"+2:00",
+               "description":"Kaliningrad, South Africa"
+            }
+         },
+         "email":"helmi.saarinen@example.com",
+         "login":{
+            "uuid":"4e225b8c-6de2-4cd5-8c87-4e618451a517",
+            "username":"whiteelephant210",
+            "password":"heidi1",
+            "salt":"52vCedhz",
+            "md5":"139e0e2a26ee8241ca14fd3a668ce3f3",
+            "sha1":"36c076699452ded801d28d5444fd2da50fec2773",
+            "sha256":"757808dc8cceb7bb5d202709eb2b216465178ae02e5296dcf914d32b248efa66"
+         },
+         "dob":{
+            "date":"1977-08-08T17:05:23.461Z",
+            "age":44
+         },
+         "registered":{
+            "date":"2015-02-19T12:31:18.961Z",
+            "age":6
+         },
+         "phone":"09-988-778",
+         "cell":"044-349-00-35",
+         "id":{
+            "name":"HETU",
+            "value":"NaNNA426undefined"
+         },
+         "picture":{
+            "large":"https://randomuser.me/api/portraits/women/84.jpg",
+            "medium":"https://randomuser.me/api/portraits/med/women/84.jpg",
+            "thumbnail":"https://randomuser.me/api/portraits/thumb/women/84.jpg"
+         },
+         "nat":"FI"
+      },
+      {
+         "gender":"female",
+         "name":{
+            "title":"Miss",
+            "first":"تینا",
+            "last":"رضایی"
+         },
+         "location":{
+            "street":{
+               "number":3717,
+               "name":"میدان شهدا"
+            },
+            "city":"بروجرد",
+            "state":"ایلام",
+            "country":"Iran",
+            "postcode":39568,
+            "coordinates":{
+               "latitude":"37.4214",
+               "longitude":"47.1932"
+            },
+            "timezone":{
+               "offset":"+10:00",
+               "description":"Eastern Australia, Guam, Vladivostok"
+            }
+         },
+         "email":"tyn.rdyy@example.com",
+         "login":{
+            "uuid":"87af8dce-6775-48ee-92ee-9650670b0683",
+            "username":"purplegoose972",
+            "password":"amelia",
+            "salt":"gyE5CFRd",
+            "md5":"3f7e4ce82002719615915120ccdfd522",
+            "sha1":"d3af51b19f1f475e6b19c8cdbf1b6c506b89068d",
+            "sha256":"3e52fd503f26cd0ab62462f833e44b6bbc33983570be840330f117e5e5562ad9"
+         },
+         "dob":{
+            "date":"1979-09-05T04:46:53.947Z",
+            "age":42
+         },
+         "registered":{
+            "date":"2014-06-05T15:35:52.724Z",
+            "age":7
+         },
+         "phone":"050-99123035",
+         "cell":"0987-826-6858",
+         "id":{
+            "name":"",
+            "value":null
+         },
+         "picture":{
+            "large":"https://randomuser.me/api/portraits/women/7.jpg",
+            "medium":"https://randomuser.me/api/portraits/med/women/7.jpg",
+            "thumbnail":"https://randomuser.me/api/portraits/thumb/women/7.jpg"
+         },
+         "nat":"IR"
+      },
+      {
+         "gender":"female",
+         "name":{
+            "title":"Ms",
+            "first":"Sara",
+            "last":"Johnson"
+         },
+         "location":{
+            "street":{
+               "number":7887,
+               "name":"Park Road"
+            },
+            "city":"Edinburgh",
+            "state":"Merseyside",
+            "country":"United Kingdom",
+            "postcode":"CG62 6UL",
+            "coordinates":{
+               "latitude":"38.8166",
+               "longitude":"76.0701"
+            },
+            "timezone":{
+               "offset":"+3:00",
+               "description":"Baghdad, Riyadh, Moscow, St. Petersburg"
+            }
+         },
+         "email":"sara.johnson@example.com",
+         "login":{
+            "uuid":"af554c46-4d88-41db-a0ed-5710166e319b",
+            "username":"beautifulpanda250",
+            "password":"girlies",
+            "salt":"tAmDknzR",
+            "md5":"c6869a88de52252257dcb051368cdc71",
+            "sha1":"ce4630c131a7fb2982ed0e07018b3c915288e309",
+            "sha256":"fb13b72d541b7b7f48283773887a194021558ce044490ec984d8f91f947c25fa"
+         },
+         "dob":{
+            "date":"1974-09-03T06:46:25.741Z",
+            "age":47
+         },
+         "registered":{
+            "date":"2015-10-22T02:58:51.858Z",
+            "age":6
+         },
+         "phone":"0141 523 1897",
+         "cell":"0787-262-325",
+         "id":{
+            "name":"NINO",
+            "value":"RG 74 71 03 L"
+         },
+         "picture":{
+            "large":"https://randomuser.me/api/portraits/women/59.jpg",
+            "medium":"https://randomuser.me/api/portraits/med/women/59.jpg",
+            "thumbnail":"https://randomuser.me/api/portraits/thumb/women/59.jpg"
+         },
+         "nat":"GB"
+      },
+      {
+         "gender":"female",
+         "name":{
+            "title":"Mrs",
+            "first":"Johanne",
+            "last":"Jensen"
+         },
+         "location":{
+            "street":{
+               "number":6998,
+               "name":"Kystvej"
+            },
+            "city":"Overby Lyng",
+            "state":"Danmark",
+            "country":"Denmark",
+            "postcode":26906,
+            "coordinates":{
+               "latitude":"66.7788",
+               "longitude":"143.5626"
+            },
+            "timezone":{
+               "offset":"-4:00",
+               "description":"Atlantic Time (Canada), Caracas, La Paz"
+            }
+         },
+         "email":"johanne.jensen@example.com",
+         "login":{
+            "uuid":"eddcbe75-7f00-4587-89a4-20f5b325167e",
+            "username":"whiteleopard997",
+            "password":"weiner",
+            "salt":"Uq2GN9hc",
+            "md5":"3ec7a628e68c01aa80fd04ed27f61662",
+            "sha1":"6aabf2599506325ba6ce7f13bd188ffd05d4bb18",
+            "sha256":"15035a9775eebfec0240b783e2aba63d51a21f05b80ea1f452b58963f3ac25b4"
+         },
+         "dob":{
+            "date":"1990-01-01T14:08:53.654Z",
+            "age":31
+         },
+         "registered":{
+            "date":"2016-06-20T21:14:48.764Z",
+            "age":5
+         },
+         "phone":"44864823",
+         "cell":"73257758",
+         "id":{
+            "name":"CPR",
+            "value":"010190-1883"
+         },
+         "picture":{
+            "large":"https://randomuser.me/api/portraits/women/52.jpg",
+            "medium":"https://randomuser.me/api/portraits/med/women/52.jpg",
+            "thumbnail":"https://randomuser.me/api/portraits/thumb/women/52.jpg"
+         },
+         "nat":"DK"
+      },
+      {
+         "gender":"female",
+         "name":{
+            "title":"Miss",
+            "first":"آیلین",
+            "last":"نكو نظر"
+         },
+         "location":{
+            "street":{
+               "number":9999,
+               "name":"واعظی"
+            },
+            "city":"همدان",
+            "state":"البرز",
+            "country":"Iran",
+            "postcode":28969,
+            "coordinates":{
+               "latitude":"-6.5231",
+               "longitude":"2.1994"
+            },
+            "timezone":{
+               "offset":"+6:00",
+               "description":"Almaty, Dhaka, Colombo"
+            }
+         },
+         "email":"aylyn.nkwnzr@example.com",
+         "login":{
+            "uuid":"b0196fab-180f-4f23-9058-dbd3aad9e8d7",
+            "username":"blueswan703",
+            "password":"alone",
+            "salt":"QvTpEVFw",
+            "md5":"16aede68fc2d198df6e3c4e65be0ad2c",
+            "sha1":"81d71f2fb50d09e520fe3f9636aa84276ee009f3",
+            "sha256":"68193dc6f1de9b68019d6e5b8295e5c9193b8c0800bdc5b847cb0e16fcfef379"
+         },
+         "dob":{
+            "date":"1945-06-25T01:20:35.834Z",
+            "age":76
+         },
+         "registered":{
+            "date":"2016-05-20T13:55:09.036Z",
+            "age":5
+         },
+         "phone":"066-98947093",
+         "cell":"0964-684-0912",
+         "id":{
+            "name":"",
+            "value":null
+         },
+         "picture":{
+            "large":"https://randomuser.me/api/portraits/women/71.jpg",
+            "medium":"https://randomuser.me/api/portraits/med/women/71.jpg",
+            "thumbnail":"https://randomuser.me/api/portraits/thumb/women/71.jpg"
+         },
+         "nat":"IR"
+      }
+   ],
+   "info":{
+      "seed":"0f8b159b79727ef2",
+      "results":10,
+      "page":1,
+      "version":"1.3"
+   }
+}

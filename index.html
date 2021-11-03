@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+  <title>Random User App</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <!-- user-select page start -->
+    <div class="nes-container" id='user-select'>
+      <div class="wrapper">
+        <form class="form-user-select">
+          <div style="background-color:#212529; padding: 1rem 1.2rem 1rem 1rem;width:calc(100% + 8px)">
+            <label for="dark_select" style="color:#fff">Gender</label>
+            <div class="nes-select">
+              <select required id="gender-select">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+          </div>
+          <div style="background-color:#212529; padding: 1rem;" class="nes-field ">
+            <label for="dark_field" style="color:#fff;">User Count</label>
+            <input type="number" id="user-count" class="nes-input" placeholder="How many people?" min='1' max='500'>
+          </div>
+          <button type="submit" class="nes-btn is-warning">Submit</button>
+        </form>
+      </div>
+    </div>
+    <!-- user-select page end -->
+
+    <!-- user-filter page start -->
+    <div class="nes-container hide-item" id='user-filter'>
+      <div class="wrapper">
+        <div class="filter-wrapper">
+          <form class="form-filter">
+            <h2>Age</h2>
+            <div class="form-inputs">
+              <div>
+                <label for="min-age">Minimum:
+                </label><span id="slider-min">Select</span>
+              </div>
+              <input type="range" id="min-age" name="min-age" min="18" max="40" step="1" value="18">
+              <div>
+                <label for="max-age">Maximum: </label><span id="slider-max">Select</span>
+              </div>
+              <input type="range" id="max-age" name="max-age" min="40" max="80" step="1" value="80">
+              <label for="dark_select" style="color:#fff">City</label>
+            </div>
+            <div class="nes-select">
+              <select id="city-select"></select>
+            </div>
+            <button type="submit" class="nes-btn is-warning">Filter</button>
+          </form>
+          <div class="new-query-button">
+            <button class="nes-btn is-warning new-query-btn-item">New Query</button>
+          </div>
+        </div>
+        <section class="users-wrapper">
+          <ul class="users"></ul>
+        </section>
+      </div>
+    </div>
+    <!-- user-filter page end -->
+
+
+  </div>
+
+  <script type="module" src="/main.js" defer></script>
+</body>
+
+</html>
